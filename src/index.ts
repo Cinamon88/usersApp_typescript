@@ -1,14 +1,14 @@
 const inquirer = require('inquirer');
 
 enum Action {
-    List = "list",
-    Add = "add",
-    Remove = "remove",
-    Quit = "quit"
+  List = "list",
+  Add = "add",
+  Remove = "remove",
+  Quit = "quit"
 }
   
 type InquirerAnswers = {
-    action: Action
+  action: Action
 }
 
 const startApp = () => {
@@ -22,6 +22,10 @@ const startApp = () => {
     if (answers.action === "quit")
       return;
   });
+}
+
+class Message {
+  constructor(private content: string) {}
 }
 
 startApp();
