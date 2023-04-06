@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const consola = require('consola')
 
 enum Action {
   List = "list",
@@ -31,24 +32,37 @@ class Message {
     console.log(this.content)
   }
 
-  public capitilize() {
+  public capitalize() {
     const capitilizedLetter = this.content.charAt(0);
     capitilizedLetter.toUpperCase();
     const remainingLetters = this.content.slice(1);
     return capitilizedLetter + remainingLetters;
   }
 
-  public toUpperCase() {
-    this.content.toUpperCase();
-  }
-
   public toLowerCase() {
     this.content.toLowerCase();
   }
 
-  
+  public toUpperCase() {
+    this.content.toUpperCase();
+  }
+
+  static showColorized(MessageVariant: string, text: string) {
+    if(MessageVariant === 'success') {
+      consola.success(text);
+    } else if(MessageVariant === 'error') {
+      consola.error(text);
+    } else if (MessageVariant === 'info') {
+      consola.info(text);
+    }
+  }
+
 }
 
-
+enum MessageVariant {
+  Success = 'success',
+  Error = 'error',
+  Info = 'info'
+}
 
 startApp();
