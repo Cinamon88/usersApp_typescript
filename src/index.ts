@@ -26,6 +26,29 @@ const startApp = () => {
 
 class Message {
   constructor(private content: string) {}
+
+  public show() {
+    console.log(this.content)
+  }
+
+  public capitilize() {
+    const capitilizedLetter = this.content.charAt(0);
+    capitilizedLetter.toUpperCase();
+    const remainingLetters = this.content.slice(1);
+    return capitilizedLetter + remainingLetters;
+  }
+
+  public toUpperCase() {
+    this.content.toUpperCase();
+  }
+
+  public toLowerCase() {
+    this.content.toLowerCase();
+  }
+
+  
 }
+
+
 
 startApp();
